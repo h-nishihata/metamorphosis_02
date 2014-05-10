@@ -2,10 +2,13 @@
 
 #include "ofxLayer.h"
 #include "pen.h"
+#include "eraser.h"
+
 #define OFX_LAYER_DEFINE_LAYER_CLASS(Klass) public: const char* getClassName() const { return #Klass; } \
 unsigned int getClassID() const { return ofx::Layer::Type2Int<Klass>::value(); }
 
-#define NUM 500
+#define NUM 50
+#define NUM_E 10
 
 class TestLayer2 : public ofxLayer::Layer{
 public:
@@ -15,6 +18,7 @@ public:
     void setup();
     void update();
     void draw();
+    void fading(int r, int g, int b, float alpha);
     
     unsigned char* pixels;
     int pos;
@@ -22,7 +26,7 @@ public:
     int green;
     int blue;
     int identify;
-    float alpha;
+
     int waiting_1;
     int waiting_2;
     int waiting_3;
@@ -39,5 +43,6 @@ public:
     ofImage image;
     
     pen pens[NUM];
-//    vector<pen> pens;
+    eraser erasers[NUM_E];
+
 };

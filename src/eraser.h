@@ -1,30 +1,29 @@
-#ifndef _OF_PEN
-#define _OF_PEN
+#ifndef _OF_ERASER
+#define _OF_ERASER
 
 #include "ofMain.h"
 
-class pen{
+class eraser{
     
 public:
-
-    float centx;
-    float centy;
+    
+    int centx, centy;
     float radius;
     int ang;
     int rotate;
-    float x, y;
-    float oppx, oppy;
-    float bX;
-    float bY;
+    int x, y;
+    int oppx, oppy;
+    int bX;
+    int bY;
     
     float radiusNoise;
     int waitCnt;
     int step;
-
+    
     float r;
     float g;
     float b;
-    int ID;
+//    int ID;
     float col;
     bool flag;
     int a;
@@ -34,7 +33,7 @@ public:
     int speedX;
     int speedY;
     
-    pen();
+    eraser();
     void setup();
     void update();
     void draw();
@@ -42,7 +41,7 @@ public:
     void setR(int red);
     void setG(int green);
     void setB(int blue);
-    void setID(int indentify);
+//    void setID(int indentify);
     
 };
 

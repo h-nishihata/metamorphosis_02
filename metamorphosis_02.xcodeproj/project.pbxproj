@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73393D09191E1B4C0028E55D /* eraser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73393D07191E1B4C0028E55D /* eraser.cpp */; };
 		73442C4F190A599700538F1A /* pen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73442C4D190A599700538F1A /* pen.cpp */; };
 		73E3936B1915B8910025C9E2 /* ofxLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73E393641915B8910025C9E2 /* ofxLayer.cpp */; };
 		73E3936C1915B8910025C9E2 /* ofxLayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73E393671915B8910025C9E2 /* ofxLayerManager.cpp */; };
@@ -65,6 +66,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		73393D07191E1B4C0028E55D /* eraser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eraser.cpp; sourceTree = "<group>"; };
+		73393D08191E1B4C0028E55D /* eraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eraser.h; sourceTree = "<group>"; };
 		73442C4D190A599700538F1A /* pen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pen.cpp; sourceTree = "<group>"; };
 		73442C4E190A599700538F1A /* pen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pen.h; sourceTree = "<group>"; };
 		73E393641915B8910025C9E2 /* ofxLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLayer.cpp; sourceTree = "<group>"; };
@@ -226,6 +229,8 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				73442C4D190A599700538F1A /* pen.cpp */,
 				73442C4E190A599700538F1A /* pen.h */,
+				73393D07191E1B4C0028E55D /* eraser.cpp */,
+				73393D08191E1B4C0028E55D /* eraser.h */,
 				73E393751915B9010025C9E2 /* TestLayer1.cpp */,
 				73E393761915B9010025C9E2 /* TestLayer1.h */,
 				73E393781915B93E0025C9E2 /* TestLayer2.cpp */,
@@ -336,6 +341,7 @@
 				73442C4F190A599700538F1A /* pen.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				73E3936B1915B8910025C9E2 /* ofxLayer.cpp in Sources */,
+				73393D09191E1B4C0028E55D /* eraser.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				73E3936C1915B8910025C9E2 /* ofxLayerManager.cpp in Sources */,
 				73E393771915B9010025C9E2 /* TestLayer1.cpp in Sources */,

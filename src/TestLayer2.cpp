@@ -24,7 +24,7 @@ void TestLayer2::setup(){
         
     }
     
-    alpha = 60;
+    
     end_0 = true;
     end_1 = true;
     
@@ -35,6 +35,10 @@ void TestLayer2::update(){
     for (int i=0; i<NUM; i++) {
         pens[i].update();
     }
+    for (int i=0; i<NUM_E; i++) {
+        erasers[i].update();
+        //        erasers[i].setR();
+    }
     
 }
 //--------------------------------------------------------------------------------------------------------------
@@ -43,63 +47,6 @@ void TestLayer2::draw(){
     ofTranslate(0, 900);
     ofRotateX(180);
     
-    // setting
-    if (end_0 == true) {
-        waiting_1++;
-        if (alpha < 60) {
-            alpha+=0.1;
-        }
-    }
-    
-    // phase 1
-    if (end_1 == true) {
-        if (waiting_2 < 80) {
-            waiting_2++;
-        }else{
-            end_0 = false;
-            end_2 = true;
-            if (alpha > 0) {
-                alpha-=5;
-            }
-        }
-    }
-    
-    // elase all
-    if (end_2 == true) {
-        if (waiting_3 < 700) {
-            waiting_3++;
-        }else{
-            end_1 = false;
-            end_3 = true;
-            if (alpha < 60) {
-                alpha+=0.1;
-            }
-        }
-    }
-    
-    // phase 2
-    if (end_3 == true) {
-        if (waiting_4 < 80) {
-            waiting_4++;
-        }else{
-            end_2 = false;
-            end_4 = true;
-            if (alpha > 0) {
-                alpha-=5;
-            }
-        }
-    }
-    
-    // reset
-    if (end_4 == true) {
-        if (waiting_5 < 700) {
-            waiting_5++;
-        }else{
-            waiting_1 = waiting_2 = waiting_3 = waiting_4 = waiting_5 = 0;
-            end_2 = end_3 = end_4 = false;
-            end_0 = end_1 = true;
-        }
-    }
     
     
     fbo.begin();
@@ -114,6 +61,9 @@ void TestLayer2::draw(){
     for (int i=0; i<NUM; i++) {
         pens[i].draw();
     }
+    for (int i=0; i<NUM_E; i++) {
+        erasers[i].draw();
+    }
     
     for (int n=0; n<NUM; n++) {
         for (int m = pens[n].ID + 1; m<NUM; m++) {
@@ -124,36 +74,75 @@ void TestLayer2::draw(){
             
             if (d < pens[m].radius + pens[n].radius) {
                 if (d > abs(pens[m].radius - pens[n].radius)) {
-                    //                    pens[n].drawing = true;
-                    //                    cout << "ok" << endl;
-                    //                    pens[n].t_1 = pens[n].centx;
-                    //                    pens[n].t_2 = pens[n].centy;
-                    //                    pens[n].t_3 = pens[m].centy;
-                    //                    pens[n].t_4 = pens[m].centy;
-                    ofSetColor(pens[m].r + pens[m].col,
-                               pens[m].g + pens[m].col,
-                               pens[m].b + pens[m].col,
-                               pens[m].a);
-                    ofSetLineWidth(5);
+                    ofSetLineWidth(2);
+                    //                      ofSetColor(0,0,255);
+                    ofSetColor(pens[m].r, pens[m].g, pens[m].b, pens[m].a);
+                    ofSetLineWidth(ofRandom(1,5));
                     ofLine(pens[m].centx, pens[m].centy, pens[n].centx, pens[n].centy);
-                    //            float a = (pens[n].radius * pens[n].radius
-                    //                       - pens[n+1].radius * pens[n+1].radius
-                    //                       + d * d
-                    //                       )/(2*d);
-                    //            float p2x = pens[n].centx + a*(pens[n+1].centx - pens[n].centx);
-                    //            float p2y = pens[n].centy + a*(pens[n+1].centy - pens[n].centy);
-                    //            ofSetColor(0,0,255);
-                    //            ofSetLineWidth(5);
-                    //            ofLine(pens[n].centx, pens[n].centy, p2x, p2y);
+                    
                 }
             }
             
         }
-        
     }
     
-    ofSetColor(200, 180, 100, alpha);
-    ofRect(0, 0, ofGetWidth(), ofGetHeight());
+    
+    // setting
+    if (end_0 == true) {
+        waiting_1++;
+        fading(30, 0, 30, 200);
+        //        cout << "phase 0" << endl;
+    }
+    
+    // phase 1
+    if (end_1 == true) {
+        if (waiting_2 < 50) {
+            waiting_2++;
+        }else{
+            end_0 = false;
+            end_2 = true;
+            fading(30, 30, 0, 200);
+            //        cout << "phase 1" << endl;
+        }
+    }
+    
+    // phase 3
+    if (end_2 == true) {
+        if (waiting_3 < 50) {
+            waiting_3++;
+        }else{
+            end_1 = false;
+            end_3 = true;
+            fading(0, 0, 0, 200);
+            //        cout << "phase 2" << endl;
+        }
+    }
+    
+    // phase 2
+    if (end_3 == true) {
+        if (waiting_4 < 50) {
+            waiting_4++;
+        }else{
+            end_2 = false;
+            end_4 = true;
+            fading(0, 0, 0, 0);
+            //        cout << "phase 3" << endl;
+        }
+    }
+    
+    // reset
+    if (end_4 == true) {
+        if (waiting_5 < 50) {
+            waiting_5++;
+        }else{
+            waiting_1 = waiting_2 = waiting_3 = waiting_4 = waiting_5 = 0;
+            end_2 = end_3 = end_4 = false;
+            end_0 = end_1 = true;
+            //        cout << "reset" << endl;
+        }
+    }
+    //    ofSetColor(0, 0, 0, alpha);
+    //    ofRect(0, 0, ofGetWidth(), ofGetHeight());
     processFbo.end();
     
     
@@ -161,6 +150,21 @@ void TestLayer2::draw(){
     ofSetHexColor(0xffffff);
     fbo.draw(0,0);
     
-    
+//    cout << pens[0].g << endl;
     
 }
+
+//--------------------------------------------------------------------------------------------------------------
+void TestLayer2::fading(int r, int g, int b, float alpha){
+    
+    ofSetColor(r, g, b, alpha);
+    ofRect(0, 0, ofGetWidth(), ofGetHeight());
+    
+    for (int i=0; i<NUM_E; i++) {
+        erasers[i].setR(r);
+        erasers[i].setG(g);
+        erasers[i].setB(b);
+    }
+    
+}
+

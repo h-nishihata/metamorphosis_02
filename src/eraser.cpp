@@ -1,11 +1,11 @@
-#include "pen.h"
+#include "eraser.h"
 
-pen::pen(){
+eraser::eraser(){
     
-    centx = ofNoise(ofRandom(10)) * 1500 + 100;
-    centy = ofNoise(ofRandom(10)) * 500;
+    centx = ofRandom(2144);
+    centy = ofRandom(936);
     
-    radius = ofRandom(3,30);
+    radius = ofRandom(10,50);
     radiusNoise = ofRandom(10);
     rotate = ofRandom(-2,2);
     
@@ -13,71 +13,42 @@ pen::pen(){
         rotate = 1;
     }
     
-    bX = ofRandom(50)-25;
-    bY = ofRandom(50)-25;
+    bX = ofRandom(100)-50;
+    bY = ofRandom(100)-50;
     
     waitCnt = ofRandom(0, 300);
     step = 0;
-    
-//    col = 0;
+
     flag = false;
     a = ofRandom(0, 255);
     waiting = ofRandom(0,80);
-//    sw = ofRandom(1,8);
     
-    speedX = ofRandom(-2, 2);
-    speedY = ofRandom(-2, 2);
-
-//    num = 100;
-//    drawing = false;
+    speedX = ofRandom(-2,2);
+    speedY = ofRandom(-2,2);
     
 }
-//--------------------------------------------------------------
-void pen::setup(){
 
-}
 //--------------------------------------------------------------
-void pen::setR(int red){
+void eraser::setR(int red){
     r = red;
 }
 
 //--------------------------------------------------------------
-void pen::setG(int green){
+void eraser::setG(int green){
     g = green;
 }
 
 //--------------------------------------------------------------
-void pen::setB(int blue){
+void eraser::setB(int blue){
     b = blue;
 }
 
 //--------------------------------------------------------------
-void pen::setID(int identify){
-    ID = identify;
-}
-
-//--------------------------------------------------------------
-void pen::update(){
+void eraser::update(){
     
     ang += rotate;
-    radius += ofRandom(-0.5, 0.5);
+    radius += ofRandom(-1.0, 1.0);
     radiusNoise += ofRandom(-0.05, 0.05);
-    
-    if (flag == false) {
-        r+=0.1;
-        g+=0.1;
-        b+=0.1;
-        if(r>=255 || g>=255 || b>=25){
-            flag = true;
-        }
-    }else if (flag == true){
-        r-=0.1;
-        g-=0.1;
-        b-=0.1;
-        if(r<=0 || g<=0 || b<=0){
-            flag = false;
-        }
-    }
     
     centx += speedX;
     centy += speedY;
@@ -90,14 +61,10 @@ void pen::update(){
     
 }
 //--------------------------------------------------------------
-void pen::draw(){
+void eraser::draw(){
     
     ofEnableSmoothing();
     ofEnableAlphaBlending();
-    
-//        ofSetColor(0, 0, 255);
-//        ofCircle(centx,centy,radius);
-
     
     if(waiting < 80){
         waiting++;
@@ -118,22 +85,22 @@ void pen::draw(){
         oppx = centx - (thisRadius * cos(ang*3.141592/180));
         oppy = centy - (thisRadius * sin(ang*3.141592/180));
         
-        ofSetColor(r, g, b, a);
-        ofSetLineWidth(ofRandom(1,3));
+        ofSetColor(30,0,30,200);
+        ofSetLineWidth(ofRandom(1,5));
         ofNoFill();
-//        ofPoint(x,y);
+        //        ofPoint(x,y);
         ofLine(x, y, oppx, oppy);
         ofBezier(x, y,
                  x + bX, y + bY,
                  oppx, oppy,
                  oppx + bX, oppy + bY);
         
-//        ofBeginShape();
-//        ofCurve(x, y,
-//                x + bX, y + bY,
-//                oppx, oppy,
-//                oppx + bX, oppy + bY);
-//        ofEndShape();
+        //        ofBeginShape();
+        //        ofCurve(x, y,
+        //                x + bX, y + bY,
+        //                oppx, oppy,
+        //                oppx + bX, oppy + bY);
+        //        ofEndShape();
         
         
         if ((ang > 360) || (ang < -360) ) {
@@ -143,8 +110,8 @@ void pen::draw(){
             radius = 3;
         }
     }
-
-
+    
+    
 }
 
 
