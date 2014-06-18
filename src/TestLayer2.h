@@ -25,6 +25,7 @@ public:
     int red;
     int green;
     int blue;
+    int a;
     int identify;
 
     int waiting_1;

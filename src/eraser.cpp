@@ -5,26 +5,25 @@ eraser::eraser(){
     centx = ofRandom(2144);
     centy = ofRandom(936);
     
-    radius = ofRandom(10,50);
+    radius = (r+g+b)/3/ofRandom(100);
     radiusNoise = ofRandom(10);
-    rotate = ofRandom(-2,2);
+    rotate = ofRandom(-2, 2);
     
     if (rotate == 0) {
         rotate = 1;
     }
     
-    bX = ofRandom(100)-50;
-    bY = ofRandom(100)-50;
+    bX = ofRandom(50)-25;
+    bY = ofRandom(50)-25;
+    
+    speedX = ofRandom(-2, 2);
+    speedY = ofRandom(-2, 2);
     
     waitCnt = ofRandom(0, 300);
     step = 0;
 
-    flag = false;
     a = ofRandom(0, 255);
     waiting = ofRandom(0,80);
-    
-    speedX = ofRandom(-2,2);
-    speedY = ofRandom(-2,2);
     
 }
 
@@ -47,11 +46,12 @@ void eraser::setB(int blue){
 void eraser::update(){
     
     ang += rotate;
-    radius += ofRandom(-1.0, 1.0);
+    radius += ofRandom(-0.5, 0.5);
     radiusNoise += ofRandom(-0.05, 0.05);
     
     centx += speedX;
     centy += speedY;
+    
     if (centx >= 2144 || centx <= 0) {
         speedX = speedX*-1;
     }
@@ -85,22 +85,15 @@ void eraser::draw(){
         oppx = centx - (thisRadius * cos(ang*3.141592/180));
         oppy = centy - (thisRadius * sin(ang*3.141592/180));
         
-        ofSetColor(30,0,30,200);
+        ofSetColor(r, g, b, 200);
         ofSetLineWidth(ofRandom(1,5));
         ofNoFill();
-        //        ofPoint(x,y);
+        
         ofLine(x, y, oppx, oppy);
         ofBezier(x, y,
                  x + bX, y + bY,
                  oppx, oppy,
                  oppx + bX, oppy + bY);
-        
-        //        ofBeginShape();
-        //        ofCurve(x, y,
-        //                x + bX, y + bY,
-        //                oppx, oppy,
-        //                oppx + bX, oppy + bY);
-        //        ofEndShape();
         
         
         if ((ang > 360) || (ang < -360) ) {

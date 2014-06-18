@@ -22,5 +22,5 @@ public:
     float speedY;
 
     ofImage img;
-//    unsigned char* pixels;
+
 };

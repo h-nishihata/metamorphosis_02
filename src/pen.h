@@ -7,11 +7,12 @@ class pen{
     
 public:
 
+    //  stroke
     float centx;
     float centy;
     float radius;
-    int ang;
-    int rotate;
+    float ang;
+    float rotate;
     float x, y;
     float oppx, oppy;
     float bX;
@@ -20,20 +21,21 @@ public:
     float radiusNoise;
     int waitCnt;
     int step;
-
-    float r;
-    float g;
-    float b;
     int ID;
-    float col;
-    bool flag;
-    int a;
-    int waiting;
-    int sw;
-    
+
     int speedX;
     int speedY;
     
+    //  colors
+    float r;
+    float g;
+    float b;
+    bool flag;
+    int a;
+    int waiting;
+    
+    
+    //  functions
     pen();
     void setup();
     void update();
