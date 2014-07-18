@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		73393D09191E1B4C0028E55D /* eraser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73393D07191E1B4C0028E55D /* eraser.cpp */; };
 		73442C4F190A599700538F1A /* pen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73442C4D190A599700538F1A /* pen.cpp */; };
-		73E3936B1915B8910025C9E2 /* ofxLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73E393641915B8910025C9E2 /* ofxLayer.cpp */; };
-		73E3936C1915B8910025C9E2 /* ofxLayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73E393671915B8910025C9E2 /* ofxLayerManager.cpp */; };
 		73E393771915B9010025C9E2 /* TestLayer1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73E393751915B9010025C9E2 /* TestLayer1.cpp */; };
 		73E3937A1915B93E0025C9E2 /* TestLayer2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73E393781915B93E0025C9E2 /* TestLayer2.cpp */; };
 		73E393801915B9F40025C9E2 /* TestLayer3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73E3937E1915B9F40025C9E2 /* TestLayer3.cpp */; };
@@ -70,11 +68,6 @@
 		73393D08191E1B4C0028E55D /* eraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eraser.h; sourceTree = "<group>"; };
 		73442C4D190A599700538F1A /* pen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pen.cpp; sourceTree = "<group>"; };
 		73442C4E190A599700538F1A /* pen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pen.h; sourceTree = "<group>"; };
-		73E393641915B8910025C9E2 /* ofxLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLayer.cpp; sourceTree = "<group>"; };
-		73E393651915B8910025C9E2 /* ofxLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLayer.h; sourceTree = "<group>"; };
-		73E393661915B8910025C9E2 /* ofxLayerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLayerConstants.h; sourceTree = "<group>"; };
-		73E393671915B8910025C9E2 /* ofxLayerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLayerManager.cpp; sourceTree = "<group>"; };
-		73E393681915B8910025C9E2 /* ofxLayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLayerManager.h; sourceTree = "<group>"; };
 		73E393751915B9010025C9E2 /* TestLayer1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestLayer1.cpp; sourceTree = "<group>"; };
 		73E393761915B9010025C9E2 /* TestLayer1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLayer1.h; sourceTree = "<group>"; };
 		73E393781915B93E0025C9E2 /* TestLayer2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestLayer2.cpp; sourceTree = "<group>"; };
@@ -133,31 +126,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		73E393531915B8910025C9E2 /* ofxLayer-master */ = {
-			isa = PBXGroup;
-			children = (
-				73E393631915B8910025C9E2 /* src */,
-			);
-			name = "ofxLayer-master";
-			path = "../../../../of_v0.8.0_osx_release/addons/ofxLayer-master";
-			sourceTree = "<group>";
-		};
-		73E393631915B8910025C9E2 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				73E393641915B8910025C9E2 /* ofxLayer.cpp */,
-				73E393651915B8910025C9E2 /* ofxLayer.h */,
-				73E393661915B8910025C9E2 /* ofxLayerConstants.h */,
-				73E393671915B8910025C9E2 /* ofxLayerManager.cpp */,
-				73E393681915B8910025C9E2 /* ofxLayerManager.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				73E393531915B8910025C9E2 /* ofxLayer-master */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -340,10 +311,8 @@
 				73E3937A1915B93E0025C9E2 /* TestLayer2.cpp in Sources */,
 				73442C4F190A599700538F1A /* pen.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				73E3936B1915B8910025C9E2 /* ofxLayer.cpp in Sources */,
 				73393D09191E1B4C0028E55D /* eraser.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
-				73E3936C1915B8910025C9E2 /* ofxLayerManager.cpp in Sources */,
 				73E393771915B9010025C9E2 /* TestLayer1.cpp in Sources */,
 				73E393801915B9F40025C9E2 /* TestLayer3.cpp in Sources */,
 			);

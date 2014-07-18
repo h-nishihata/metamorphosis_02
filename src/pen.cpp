@@ -117,7 +117,7 @@ void pen::draw(){
         ofSetLineWidth(ofRandom(1,3));
         ofNoFill();
         
-/*
+
         for (int n=0; n<50; n++) {
             for (int m = this[n].ID + 1; m<50; m++) {
                 
@@ -137,7 +137,7 @@ void pen::draw(){
                 
             }
         }
-*/
+
         
         ofLine(x, y, oppx, oppy);
         ofBezier(x, y,
