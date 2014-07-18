@@ -2,8 +2,8 @@
 
 eraser::eraser(){
     
-    centx = ofRandom(2144);
-    centy = ofRandom(936);
+    centx = ofRandom(1920);
+    centy = ofRandom(1200);
     
     radius = (r+g+b)/3/ofRandom(100);
     radiusNoise = ofRandom(10);
@@ -52,10 +52,10 @@ void eraser::update(){
     centx += speedX;
     centy += speedY;
     
-    if (centx >= 2144 || centx <= 0) {
+    if (centx >= 1920 || centx <= 0) {
         speedX = speedX*-1;
     }
-    if (centy >= 936 || centy <= 0) {
+    if (centy >= 1200 || centy <= 0) {
         speedY = speedY*-1;
     }
     
@@ -66,12 +66,11 @@ void eraser::draw(){
     ofEnableSmoothing();
     ofEnableAlphaBlending();
     
-    if(waiting < 80){
-        waiting++;
-    }else{
-        if(a > 0){ a --; }else{ a = 255;}
-    }
-    
+//    if(waiting < 80){
+//        waiting++;
+//    }else{
+//        if(a > 0){ a --; }else{ a = 255;}
+//    }    
     
     if (step < waitCnt) {
         step++;
@@ -85,7 +84,7 @@ void eraser::draw(){
         oppx = centx - (thisRadius * cos(ang*3.141592/180));
         oppy = centy - (thisRadius * sin(ang*3.141592/180));
         
-        ofSetColor(r, g, b, 200);
+        ofSetColor(r, g, b);
         ofSetLineWidth(ofRandom(1,5));
         ofNoFill();
         

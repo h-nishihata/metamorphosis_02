@@ -5,7 +5,7 @@ pen::pen(){
     centx = ofNoise(ofRandom(10)) * 1500 + 100;
     centy = ofNoise(ofRandom(10)) * 500;
     
-    radius = (r+g+b)/3/ofRandom(100);
+    radius = (r+g+b)/3/ofRandom(50)+50;
     radiusNoise = ofRandom(10);
     rotate = ofRandom(-2, 2);
     
@@ -23,7 +23,7 @@ pen::pen(){
     step = 0;
     
     flag = false;
-    a = ofRandom(0, 255);
+    a = 255;
     waiting = ofRandom(0,80);
     
 }
@@ -79,10 +79,10 @@ void pen::update(){
     centx += speedX;
     centy += speedY;
     
-    if (centx >= 2144 || centx <= 0) {
+    if (centx >= 1920 || centx <= 0) {
         speedX = speedX*-1;
     }
-    if (centy >= 936 || centy <= 0) {
+    if (centy >= 1200 || centy <= 0) {
         speedY = speedY*-1;
     }
     
@@ -101,11 +101,11 @@ void pen::draw(){
     }
     
     
-    if (step < waitCnt) {
-        step++;
-    }
-    else {
-        
+//    if (step < waitCnt) {
+//        step++;
+//    }
+//    else {
+    
         float thisRadius = radius + (ofNoise(radiusNoise) * 10) -5;
         
         x = centx + (thisRadius * cos(ang*3.1415926/180));
@@ -113,11 +113,11 @@ void pen::draw(){
         oppx = centx - (thisRadius * cos(ang*3.1415926/180));
         oppy = centy - (thisRadius * sin(ang*3.1415926/180));
         
-        ofSetColor(r, g, b, a);
+        ofSetColor(r, g, b);
         ofSetLineWidth(ofRandom(1,3));
         ofNoFill();
         
-
+/*
         for (int n=0; n<50; n++) {
             for (int m = this[n].ID + 1; m<50; m++) {
                 
@@ -137,7 +137,7 @@ void pen::draw(){
                 
             }
         }
-
+*/
         
         ofLine(x, y, oppx, oppy);
         ofBezier(x, y,
@@ -151,7 +151,7 @@ void pen::draw(){
         if ((radius > 150) || (radius < 0) ) {
             radius = 3;
         }
-    }
+//    }
 
 
 }

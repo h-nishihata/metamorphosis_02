@@ -3,8 +3,8 @@
 //--------------------------------------------------------------------------------------------------------------
 void TestLayer2::setup(){
     
-    fbo.allocate(1440, 900);
-    processFbo.allocate(1440, 900);
+    fbo.allocate(1920, 1200);
+//    processFbo.allocate(1920, 1200);
     
     image.loadImage("ohkyo.jpg");
     pixels = image.getPixels();
@@ -24,14 +24,22 @@ void TestLayer2::setup(){
         
     }
     
-    a = 200;
-    end_0 = true;
-    end_1 = true;
+    fbo.begin();
+	ofClear(255,255,255,0);
+    fbo.end();
+    
+//    a = 200;
+//    end_0 = true;
+//    end_1 = true;
     
 }
 //--------------------------------------------------------------------------------------------------------------
 void TestLayer2::update(){
     
+    ofEnableAlphaBlending();
+    
+    fbo.begin();
+//    drawFboTest();
     for (int i=0; i<NUM; i++) {
         pens[i].update();
     }
@@ -39,33 +47,22 @@ void TestLayer2::update(){
     for (int i=0; i<NUM_E; i++) {
         erasers[i].update();
     }
+    fbo.end();
     
 }
 //--------------------------------------------------------------------------------------------------------------
 void TestLayer2::draw(){
-    
-    ofTranslate(0, 900);
-    ofRotateX(180);
-    
-    
-    
-    fbo.begin();
-    ofEnableAlphaBlending();
-    ofBackground(0,0,0,0);
-    processFbo.draw(0, 0);
-    fbo.end();
-    
-    
-    
-    processFbo.begin();
+
+        fbo.begin();
     for (int i=0; i<NUM; i++) {
         pens[i].draw();
     }
-    for (int i=0; i<NUM_E; i++) {
-        erasers[i].draw();
-    }
-        
     
+//    for (int i=0; i<NUM_E; i++) {
+//        erasers[i].draw();
+//    }
+    
+/*
     // setting
     if (end_0 == true) {
         waiting_1++;
@@ -119,15 +116,28 @@ void TestLayer2::draw(){
             end_0 = end_1 = true;
         }
     }
-    
-    //    ofSetColor(0, 0, 0, alpha);
-    //    ofRect(0, 0, ofGetWidth(), ofGetHeight());
-    processFbo.end();
-    
+*/
+
+    fbo.end();
     
     
-    ofSetHexColor(0xffffff);
+    
+//    ofSetHexColor(0xffffff);
     fbo.draw(0,0);
+    
+}
+
+//--------------------------------------------------------------
+void TestLayer2::drawFboTest(){
+    
+    fadeAmnt = 40;
+    if(ofGetKeyPressed('1')){
+        fadeAmnt = 1;
+    }
+    
+    ofFill();
+    ofSetColor(30,0,30, fadeAmnt);
+    ofRect(0,0,ofGetWidth(),ofGetHeight());
     
 }
 

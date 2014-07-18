@@ -20,6 +20,8 @@ public:
     void draw();
     void fading(int r, int g, int b, float alpha);
     
+    void drawFboTest();
+    
     unsigned char* pixels;
     int pos;
     int red;
@@ -38,6 +40,8 @@ public:
     bool end_2;
     bool end_3;
     bool end_4;
+    
+    int fadeAmnt;
     
     ofFbo fbo;
     ofFbo processFbo;

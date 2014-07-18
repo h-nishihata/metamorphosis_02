@@ -6,8 +6,8 @@ void ofApp::setup(){
     ofEnableAlphaBlending();
     ofSetVerticalSync(true);
     ofBackground(30);
-    ofSetFrameRate(8);
-    mng.setup(1440,900);
+    ofSetFrameRate(12);
+    mng.setup(1920, 1200);
     
     layer1 = mng.createLayer<TestLayer1>();
     layer2 = mng.createLayer<TestLayer2>();
@@ -21,6 +21,8 @@ void ofApp::setup(){
     
     layer3->setVisible(true);
     layer3->setAlpha(255);
+    
+    ofHideCursor();
     
 }
 
