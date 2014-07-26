@@ -23,7 +23,7 @@ pen::pen(){
     step = 0;
     
     flag = false;
-    a = 255;
+    a = ofRandom(255);
     waiting = ofRandom(0,80);
     
 }
@@ -71,6 +71,13 @@ void pen::update(){
     }
     
     
+    if(waiting < 80){
+        waiting++;
+    }else{
+        if(a > 0){ a --; }else{ a = 255;}
+    }
+    
+    
     
     ang += rotate;
     radius += ofRandom(-0.5, 0.5);
@@ -92,14 +99,7 @@ void pen::draw(){
     
     ofEnableSmoothing();
     ofEnableAlphaBlending();
-    
-    
-    if(waiting < 80){
-        waiting++;
-    }else{
-        if(a > 0){ a --; }else{ a = 255;}
-    }
-    
+  
     
 //    if (step < waitCnt) {
 //        step++;
@@ -112,8 +112,9 @@ void pen::draw(){
         y = centy + (thisRadius * sin(ang*3.1415926/180));
         oppx = centx - (thisRadius * cos(ang*3.1415926/180));
         oppy = centy - (thisRadius * sin(ang*3.1415926/180));
-        
-        ofSetColor(r, g, b);
+
+        ofSetColor(r, g, b, a);
+
         ofSetLineWidth(ofRandom(1,3));
         ofNoFill();
         
@@ -151,8 +152,8 @@ void pen::draw(){
         if ((radius > 150) || (radius < 0) ) {
             radius = 3;
         }
+    
 //    }
-
 
 }
 

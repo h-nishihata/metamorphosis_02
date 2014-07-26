@@ -25,21 +25,10 @@ eraser::eraser(){
     a = ofRandom(0, 255);
     waiting = ofRandom(0,80);
     
-}
-
-//--------------------------------------------------------------
-void eraser::setR(int red){
-    r = red;
-}
-
-//--------------------------------------------------------------
-void eraser::setG(int green){
-    g = green;
-}
-
-//--------------------------------------------------------------
-void eraser::setB(int blue){
-    b = blue;
+    r = ofRandom(30);
+    g = ofRandom(30);
+    b = ofRandom(30);
+    
 }
 
 //--------------------------------------------------------------
@@ -57,6 +46,44 @@ void eraser::update(){
     }
     if (centy >= 1200 || centy <= 0) {
         speedY = speedY*-1;
+    }
+    
+    
+    
+    if (flag_r == false) {
+        r+=0.1;
+        if(r>=30){
+            flag_r = true;
+        }
+    }else if (flag_r == true){
+        r-=0.1;
+        if(r<=0){
+            flag_r = false;
+        }
+    }
+    
+    if (flag_g == false) {
+        g+=0.1;
+        if(g>=30){
+            flag_g = true;
+        }
+    }else if (flag_g == true){
+        g-=0.1;
+        if(g<=0){
+            flag_g = false;
+        }
+    }
+    
+    if (flag_b == false) {
+        b+=0.1;
+        if(b>=30){
+            flag_b = true;
+        }
+    }else if (flag_b == true){
+        b-=0.1;
+        if(b<=0){
+            flag_b = false;
+        }
     }
     
 }
@@ -101,8 +128,8 @@ void eraser::draw(){
         if ((radius > 150) || (radius < 0) ) {
             radius = 3;
         }
-    }
-    
+        
+    }   
     
 }
 

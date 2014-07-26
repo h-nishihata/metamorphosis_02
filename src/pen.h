@@ -6,7 +6,19 @@
 class pen{
     
 public:
-
+    
+    //  functions
+    pen();
+    void setup();
+    void update();
+    void draw();
+    
+    void setR(int red);
+    void setG(int green);
+    void setB(int blue);
+    void setID(int indentify);
+    
+    
     //  stroke
     float centx;
     float centy;
@@ -26,6 +38,7 @@ public:
     int speedX;
     int speedY;
     
+    
     //  colors
     float r;
     float g;
@@ -33,18 +46,6 @@ public:
     bool flag;
     int a;
     int waiting;
-    
-    
-    //  functions
-    pen();
-    void setup();
-    void update();
-    void draw();
-    
-    void setR(int red);
-    void setG(int green);
-    void setB(int blue);
-    void setID(int indentify);
     
 };
 

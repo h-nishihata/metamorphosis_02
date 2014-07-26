@@ -7,6 +7,13 @@ class eraser{
     
 public:
     
+    //  functions
+    eraser();
+    void setup();
+    void update();
+    void draw();
+    
+    
     //  stroke
     int centx, centy;
     float radius;
@@ -31,17 +38,9 @@ public:
     float b;
     int a;
     int waiting;
-    
-    
-    //  functions
-    eraser();
-    void setup();
-    void update();
-    void draw();
-    
-    void setR(int red);
-    void setG(int green);
-    void setB(int blue);
+    bool flag_r;
+    bool flag_g;
+    bool flag_b;
     
 };
 
