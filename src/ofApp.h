@@ -3,9 +3,12 @@
 #include "ofMain.h"
 #include "pen.h"
 #include "eraser.h"
+//#include "ofxOsc.h"
 
 #define NUM 20
 #define NUM_E 10
+//#define HOST "127.0.0.1"
+//#define PORT 8000
 
 class ofApp : public ofBaseApp{
 public:
@@ -25,7 +28,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-   
+    
     unsigned char* pixels;
     int pos;
     int red;
@@ -39,12 +42,13 @@ public:
     float y;
     float speedX;
     float speedY;
-
+    
     
     ofFbo rgbaFbo;
-    
     ofImage img;
     
     pen pens[NUM];
-    eraser erasers[NUM_E];    
+    eraser erasers[NUM_E];
+    
+    //    ofxOscSender sender;
 };
